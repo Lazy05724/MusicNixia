@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+<link rel="manifest" href="./assets/site.webmanifest">
+<script src="./assets/jquery.js"></script>
+<link rel="stylesheet" href="./assets/bootstrap.min.css"/>
+<script>
+function setCookie(cname, cvalue, exdays) {const d = new Date();d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));let expires = "expires="+d.toUTCString();document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";}
+function getCookie(cname) {let name = cname + "=", ca = document.cookie.split(';');for(let i = 0; i < ca.length; i++) {let c = ca[i];while (c.charAt(0) == ' ') {c = c.substring(1);}if (c.indexOf(name) == 0) {return c.substring(name.length, c.length);}}return "";}
+function theme(theme) {$("[data-theme]").removeClass("active");if(theme == "system") {if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {theme = "dark";}else {theme = "light";}}if(theme == "light") {$(":root").attr("data-theme", "light");$(":root").attr("data-bs-theme", "light");$("[data-theme='light']").addClass("active");setCookie("theme", "light", 60);$("#theme_light").trigger("click");notify('Theme: Light');}if(theme == "dark") {$(":root").attr("data-theme", "dark");$(":root").attr("data-bs-theme", "dark");$("[data-theme='dark']").addClass("active");setCookie("theme", "dark", 60);$("#theme_dark").trigger("click");notify('Theme: Dark');}}
+</script>
+<title>MusicNixia | Untitled</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>/* math */@font-face {font-family: 'Protest Guerrilla';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/Qw3HZR5PDSL6K3irtrY-VJB2YzARHW1fqp4C_Q.woff2) format('woff2');unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0330, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2034-2037, U+2057, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2102, U+210A-210E, U+2110-2112, U+2115, U+2119-211D, U+2124, U+2128, U+212C-212D, U+212F-2131, U+2133-2138, U+213C-2140, U+2145-2149, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B6, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}/* symbols */@font-face {font-family: 'Protest Guerrilla';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/Qw3HZR5PDSL6K3irtrY-VJB2YzARHW1Nqp4C_Q.woff2) format('woff2');unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8B1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA88, U+1FA90-1FABD, U+1FABF-1FAC5, U+1FACE-1FADB, U+1FAE0-1FAE8, U+1FAF0-1FAF8, U+1FB00-1FBFF;}/* vietnamese */@font-face {font-family: 'Protest Guerrilla';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/Qw3HZR5PDSL6K3irtrY-VJB2YzARHW0sqp4C_Q.woff2) format('woff2');unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}/* latin-ext */@font-face {font-family: 'Protest Guerrilla';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/Qw3HZR5PDSL6K3irtrY-VJB2YzARHW0tqp4C_Q.woff2) format('woff2');unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}/* latin */@font-face {font-family: 'Protest Guerrilla';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/Qw3HZR5PDSL6K3irtrY-VJB2YzARHW0jqp4.woff2) format('woff2');unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}/* thai */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 400;font-display: swap;src: url(../assets/mtG-4_1TIqPYrd_f5R1osnMD-CGOFw.woff2) format('woff2');unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;}/* vietnamese */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 400;font-display: swap;src: url(../assets/mtG-4_1TIqPYrd_f5R1osnMY-CGOFw.woff2) format('woff2');unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}/* latin-ext */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 400;font-display: swap;src: url(../assets/mtG-4_1TIqPYrd_f5R1osnMZ-CGOFw.woff2) format('woff2');unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}/* latin */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 400;font-display: swap;src: url(../assets/mtG-4_1TIqPYrd_f5R1osnMX-CE.woff2) format('woff2');unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}/* thai */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 700;font-display: swap;src: url(../assets/mtGj4_1TIqPYrd_f5R1osnus3TSlNkt98w.woff2) format('woff2');unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;}/* vietnamese */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 700;font-display: swap;src: url(../assets/mtGj4_1TIqPYrd_f5R1osnus3TS-Nkt98w.woff2) format('woff2');unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}/* latin-ext */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 700;font-display: swap;src: url(../assets/mtGj4_1TIqPYrd_f5R1osnus3TS_Nkt98w.woff2) format('woff2');unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}/* latin */@font-face {font-family: 'Thasadith';font-style: italic;font-weight: 700;font-display: swap;src: url(../assets/mtGj4_1TIqPYrd_f5R1osnus3TSxNks.woff2) format('woff2');unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}/* thai */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/mtG44_1TIqPYrd_f5R1oo0MV4CU.woff2) format('woff2');unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;}/* vietnamese */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/mtG44_1TIqPYrd_f5R1ouEMV4CU.woff2) format('woff2');unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}/* latin-ext */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/mtG44_1TIqPYrd_f5R1ouUMV4CU.woff2) format('woff2');unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}/* latin */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 400;font-display: swap;src: url(../assets/mtG44_1TIqPYrd_f5R1ot0MV.woff2) format('woff2');unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}/* thai */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 700;font-display: swap;src: url(../assets/mtG94_1TIqPYrd_f5R1gDGYAywSzLk8.woff2) format('woff2');unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;}/* vietnamese */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 700;font-display: swap;src: url(../assets/mtG94_1TIqPYrd_f5R1gDGYA0ASzLk8.woff2) format('woff2');unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}/* latin-ext */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 700;font-display: swap;src: url(../assets/mtG94_1TIqPYrd_f5R1gDGYA0QSzLk8.woff2) format('woff2');unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}/* latin */@font-face {font-family: 'Thasadith';font-style: normal;font-weight: 700;font-display: swap;src: url(../assets/mtG94_1TIqPYrd_f5R1gDGYA3wSz.woff2) format('woff2');unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+<style>
+:root {
+--bs-body-bg: #ffffff;
+--bs-body-gradient: #95e3ff;
+--card-bg: #ffffff8b;
+--hr-bg: #00000041;
+--color: #000000;
+--btn-style-base: #000d62;
+--btn-style-base-hover: #ffffff;
+--btn-base: #5691ff;
+--btn-base-hover: #ffffff;
+}
+:root[data-theme="dark"] {
+--bs-body-bg: #000000;
+--bs-body-gradient: #09191f;
+--card-bg: #0000008b;
+--hr-bg: #ffffff41;
+--color: #ffffff;
+--btn-style-base: #ffffff;
+--btn-style-base-hover: #0022ff;
+--btn-base: #ffffff;
+--btn-base-hover: #0008ff;
+}
+*, html, body {scroll-behavior: smooth;padding: 0;margin: 0;transition: all 0.1s ease-in-out;}body, select, .form-select, .form-control, option {-webkit-touch-callout: none; /* iOS Safari */-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}body {overflow-x: hidden;overflow-y: auto;width: 100%;min-height: 100vh;font-family: 'Thasadith', sans-serif;display: flex;justify-content: center;align-items: center;flex-direction: column;background-color: var(--bs-body-bg);background: radial-gradient(circle at 12.3% 19.3%, var(--bs-body-bg) 0%, var(--bs-body-gradient) 100.2%);color: var(--color);}.btn {position: relative;display: flex;align-items: center;font-family: 'Thasadith', sans-serif;gap: 4px;border: 4px solid;border-color: transparent;font-size: 16px;background-color: inherit;border-radius: 100px;font-weight: 600;color: var(--btn-style);box-shadow: 0 0 0 2px var(--btn-style);cursor: pointer;overflow: hidden;transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);}.btn.animate svg {position: absolute;width: 24px;fill: var(--btn-style);z-index: 9;transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);}.btn.animate .arr-1 {right: 16px;}.btn.animate .arr-2 {left: -25%;}.btn .circle {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 20px;height: 20px;background-color: var(--btn-style);border-radius: 50%;opacity: 0;transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);}.btn .text {position: relative;z-index: 1;}.btn.animate .text {transform: translateX(-12px);transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);}.btn:hover, .btn:active  {box-shadow: 0 0 0 12px transparent;color: var(--btn-color) !important;}.btn:active {color: var(--btn-color) !important;}.btn.animate:hover .arr-1, .btn.animate:active .arr-1 {right: -25%;}.btn.animate:hover .arr-2, .btn.animate:active .arr-2 {left: 16px;}.btn.animate:hover .text, .btn.animate:active .text {transform: translateX(12px);}.btn.animate:hover svg, .btn.animate:active svg {fill: var(--btn-color) !important;}.btn:active {scale: 0.95;box-shadow: 0 0 0 4px var(--btn-style);}.btn:hover .circle, .btn:active .circle {width: 220px;height: 220px;opacity: 1;}a {color: var(--color);}.loader {width: 8px;height: 40px;border-radius: 4px;display: block;margin: 20px auto;position: absolute;background: currentColor;color: var(--color);box-sizing: border-box;animation: animloader 0.3s 0.3s linear infinite alternate;}.loader::after, .loader::before {content: '';width: 8px;height: 40px;border-radius: 4px;background: currentColor;position: absolute;top: 50%;transform: translateY(-50%);left: 20px;box-sizing: border-box;animation: animloader 0.45s  0.45s  linear infinite alternate;}.loader::before {left: -20px;animation-delay: 0s;}@keyframes animloader {0% { height: 48px} 100% { height: 4px}}#notify {position: fixed;z-index: 999999;right: 0;top: 0;left: 0;bottom: 0;width: 100%;height: 100%;overflow-x: hidden;overflow-y: auto;pointer-events: none;display: flex;justify-content: start;align-items: end;flex-direction: column-reverse;padding: 10px;;transition: all 0.2s ease-in-out;}#notify.b_c {justify-content: end;align-items: center;flex-direction: column;}#notify .notifs {padding: 10px 16px;background-color: var(--bs-primary);color: #ffffff;border-radius: 10px;opacity: 0;margin: 10px;overflow: hidden;text-overflow: ellipsis;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);max-width: 100%;width: fit-content;min-width: 100px;transition: all 0.1s ease-in-out;}#notify .notifs.shown {opacity: 1;pointer-events: all;cursor: pointer;}#notify .notifs.shown:hover {transform: scale(1.1);-o-transform: scale(1.1);-ms-transform: scale(1.1);-moz-transform: scale(1.1);-webkit-transform: scale(1.1);}#notify .notifs.nfinish {opacity: 0.2;transform: translateX(1000px);}#notify.b_c .notifs.nfinish {transform: translateX(0);transform: translateY(-20px);opacity: 0.2;}[load-status] {opacity: 0;pointer-events: none;position: fixed;z-index: -9;}logo::before {content: "MusicNixia";font-family: 'Protest Guerrilla', sans-serif;font-weight: 200;}
+</style>
+<script>
+function animatenotify(n) {if(n.hasClass("nfinish") || !n) {return;}n.addClass("nfinish");setTimeout(() => {if(n) {n.remove();}}, 100);}
+a = 1;
+function notify(text, bg, col, op) {
+if($("#notify").children().length > 3) {animatenotify($("#notify").children().last());}
+if(!text) return;
+if(!col) col = "var(--bs-body-bg)";
+if(!bg) bg = "var(--color)";
+if(!op) op = "";
+if(getCookie("notification-position") == "bottom_center" && !$("#notify").hasClass("b_c") || !getCookie("notification-position") && !$("#notify").hasClass("b_c")) $("#notify").addClass("b_c");
+if(getCookie("notification-position") == "top_right" && $("#notify").hasClass("b_c")) $("#notify").removeClass("b_c");
+notif = `<div class="notifs" session_notif="${a}" onclick='animatenotify($(this));' style='background-color: ${bg}${op};color: ${col};'>${text}</div>`;
+var b=a;
+a=a+1;
+$("#notify").append(notif);
+$("#notify [session_notif='" + b + "']").addClass("shown");
+setTimeout(() => {
+  animatenotify($("#notify [session_notif='" + b + "']"));
+}, 4000);
+}
+</script>
+<style>
+.menu_bar {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+width: 100%;
+height: 50px;
+background-color: var(--bs-body-bg);
+display: flex;
+justify-content: start;
+align-items: center;
+z-index: 99;
+flex: 1;
+padding: 0 2px;
+}
+#project_name {opacity: 0.6;border-radius: 20px;}
+#project_name:hover {opacity: 1;border-radius: 2px;}
+#project_name:focus, #project_name:active {border: 2px solid var(--color) !important;border-radius: 2px;opacity: 1;}
+</style>
+</head>
+<body>
+<span class='loader' style="transform: translateY(-60px);"></span><div style="transform: translateY(40px);text-align: center;display: flex;justify-content: center;align-items: center;flex-direction: column;overflow: hidden;"><h1 style="font-weight: 200;font-family: 'Protest Guerrilla', sans-serif;text-align: center;">MusicNixia</h1><strong style='font-size: 16px;font-weight: 200;font-family: Arial, Helvetica, sans-serif;'>Create, edit effortlessly with AI.</strong><p style="transform: translateY(10px);width: 100%;padding: 10px;text-align: center;">Transferring data, this might take some time...</p></div>
+
+<div id="notify"></div>
+<div class="menu_bar">
+    <div class="d-flex">
+        <button class="btn" style="padding: 0 10px;border-radius: 8px;--btn-style: var(--bs-body-bg);--btn-color: var(--color);border: none !important;">
+            <span class="circle"></span>
+            <logo class="text" style="color: var(--color);font-size: 20px;"></logo>
+        </button>
+        <button class="btn me-1" style="padding: 6px 20px;border-radius: 8px;--btn-style: var(--bs-body-bg);--btn-color: var(--color);">
+            <span class="circle"></span>
+            <span class="text" style="color: var(--btn-color);">File</span>
+        </button>
+        <button class="btn me-1" style="padding: 6px 20px;border-radius: 8px;--btn-style: var(--bs-body-bg);--btn-color: var(--color);">
+            <span class="circle"></span>
+            <span class="text" style="color: var(--btn-color);">Edit</span>
+        </button>
+        <button class="btn me-1" style="padding: 6px 20px;border-radius: 8px;--btn-style: var(--bs-body-bg);--btn-color: var(--color);">
+            <span class="circle"></span>
+            <span class="text" style="color: var(--btn-color);">View</span>
+        </button>
+    </div>
+    <div class="d-flex w-100 justify-content-center">
+        <input type="text" class="btn" id="project_name" style="overflow: hidden;padding: 6px 10px;max-width: 600px;width: 100%;--btn-style: var(--color);--btn-color: var(--color);height: 36px;white-space: nowrap !important;text-overflow: ellipsis !important;" value="Untitled" placeholder="Untitled" aria-label=""/>
+    </div>
+    <div class="d-flex justify-content-end">
+        <div style="display: flex;border-radius: 2em;" class="border p-0">
+            <input type="radio" class="btn-check" name="options-base-theme" id="theme_light" onclick="theme('light');" autocomplete="off" checked>
+            <label class="btn" for="theme_light" style="font-size: 16px;">Light</label>
+            <input type="radio" class="btn-check" name="options-base-theme" id="theme_dark" onclick="theme('dark');" autocomplete="off">
+            <label class="btn" for="theme_dark" style="font-size: 16px;">Dark</label>
+        </div>
+        <div class="btn" style="border: none !important;">
+            <svg class="text" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<script>
+if(!getCookie("theme")) {theme("system");}else {theme(getCookie("theme"));}
+notify(`<center><logo></logo></center>`);setTimeout(() => {notify(`<center>You're ready; everything's loaded!</center>`, "#23be00", "#ffffff", "c1");}, 4600);
+</script>
+</body>
+</html>
