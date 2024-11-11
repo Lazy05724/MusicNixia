@@ -90,10 +90,6 @@ code {padding: 4px;border: 2px solid var(--bs-secondary);color: var(--bs-primary
 }
 </style>
 <script>
-function notif_ui_details() {
-if($("body").width() > 500 && $("body").height() > 300) return notify(`<center>MusicNixia is ready; everything's loaded!</center>`, "#23be00", "#ffffff", "c1");;
-return notify("MusicNixia is ready; Preview UI!", "#23be00", "#ffffff", "c1");
-}
 function animatenotify(n) {if(n.hasClass("nfinish") || !n) {return;}n.addClass("nfinish");setTimeout(() => {if(n) {n.remove();}}, 100);}
 a = 1;
 function notify(text, bg, col, op) {
@@ -177,6 +173,10 @@ setTimeout(() => {
   </div>
 </div>
 <script>
+function notif_ui_details() {
+if($("body").width() > 500 && $("body").height() > 300) return notify(`<center>MusicNixia UI is ready!</center>`, "#23be00", "#ffffff", "c1");
+return notify("MusicNixia UI is ready; Preview UI!", "#23be00", "#ffffff", "c1");
+}
 $(document).tooltip({"classes": {"ui-tooltip": "tooltip_custom"}});
 if(!getCookie("theme")) {theme("system");}else {theme(getCookie("theme"));}
 $("#loader").hide("fade", 6000);
@@ -188,9 +188,9 @@ setTimeout(() => {
 </script>
 <script id="noclient_server">
 notify(`<center>Seems like this page didn't load correctly!</center>`, "#ff1005", "#ffffff", "c1");
-notify(`<center>App timeout expires in: 20s.</center>`, "#ff1005", "#ffffff", "c1");
+notify(`<center>20-second App Data request countdown initiated.</center>`, "#ff1005", "#ffffff", "c1");
 setTimeout(() => {
-  notify(`<center>Try refreshing or install the app locally to run.</center>`, "#ff1005", "#ffffff", "c1");
+  notify(`<center>Error: App Data timeout!</center>`, "#ff1005", "#ffffff", "c1");
   $('#render_status').addClass('shown');
 }, 20000);
 </script>
